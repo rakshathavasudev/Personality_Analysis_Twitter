@@ -51,6 +51,23 @@ shortdata = shortdata.apply(lambda x: ''.join(clear_punctuation(x))  )
 for line in shortdata:
 	print(line)
 	print('\n')
+	
+def strip_all_entities(text):
+	import string
+	entity_prefixes = ['@']
+	for separator in  string.punctuation:
+		if separator not in entity_prefixes :
+			text = text.replace(separator,' ')
+	words = []
+	for word in text.split():
+		word = word.strip()
+		if word:
+			if word[0] not in entity_prefixes:
+				words.append(word)
+	return ' '.join(words)
+
+shortdata = shortdata.apply(lambda x: ''.join(strip_all_entities(x))  ) 
+print(shortdata)
 
 	
 with open("tweets.csv","w") as file:	
