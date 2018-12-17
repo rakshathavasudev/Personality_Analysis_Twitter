@@ -74,7 +74,7 @@ trainset=shortdata.iloc[0:3]
 print('-------Train set-------')
 print(trainset)
 testset=shortdata.iloc[3:5]
-print('--------Test set--------')
+print('--------Test set-------')
 print(testset)
 
 # Create a set of frequent words
